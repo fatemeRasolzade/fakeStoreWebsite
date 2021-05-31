@@ -1,5 +1,5 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
 const Nav = () => {
     return ( 
@@ -42,7 +42,7 @@ const Nav = () => {
                         </li>
                     </ul>
                 </div>
-                <a className="navbar-brand link-navbar logo" href="#">LOREM</a>
+                <Link to="/" className="navbar-brand link-navbar logo">LOREM</Link>
             </div>
         </nav>
      );

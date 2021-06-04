@@ -42,7 +42,7 @@ const Nav = () => {
                         </li>
                     </ul>
                 </div>
-                <Link to="/" className="navbar-brand link-navbar logo">LOREM</Link>
+                <Link to="/" className="navbar-brand link-navbar logo">FAKESTORE</Link>
             </div>
         </nav>
      );

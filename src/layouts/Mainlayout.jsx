@@ -17,7 +17,7 @@ const Mainlayout = props => {
                 <div>
                     {props.children}
                 </div>
-            {pathname === "/" ? <Footer/> : null}
+            {pathname === "/" || "/allproducts" ? <Footer/> : null}
         </div>
      );
 }

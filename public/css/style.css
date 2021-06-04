@@ -20,9 +20,13 @@ body{
     margin: 0;
     padding: 0;
     direction: rtl !important;
-    background: var(--lighter);
+    background: var(--lighter) !important;
     font-family: sahel,sans-serif;
-    color: var(--darker);
+    color: var(--darker) !important;
+}
+::selection{
+    background: #9B72CF;
+    color:#F4EFFA;
 }
 h1{
     font-style: 70px;
@@ -35,7 +39,7 @@ h1{
     color: var(--lighter);
 }
 .link-navbar{
-    color: var(--lighter);
+    color: var(--lighter) !important;
     font-size: 16px;
     transition: all linear .5s;
 }
@@ -44,7 +48,7 @@ h1{
     font-weight: bold;
 }
 .header-banner{
-    background: -webkit-linear-gradient(right , rgba(0,0,0,.8), rgba(0,0,0,.8)),url('../img/buildings-1245953_1920.jpg') no-repeat center center / cover;
+    background: -webkit-linear-gradient(right , rgba(0,0,0,.6), rgba(0,0,0,.6)),url('../img/buildings-1245953_1920.jpg') no-repeat center center / cover;
     height: 70vh;
     color: var(--lighter);
 }
@@ -110,13 +114,14 @@ h1{
     align-items: center;
     height: 100vh;
 }
-.form-box {
+.form-box{
     width: 400px;
     padding: 40px;
     background:var(--dark);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
+    color: var(--lighter);
   }
   .form-box h2 {
     margin: 0 0 30px;
@@ -157,6 +162,7 @@ h1{
   }
   .dark-btn{
     background: -webkit-linear-gradient(right ,var(--light), var(--middle));
+    color: var(--lighter);
     border: none;
     border-radius: 50px;
     padding: 10px 30px;
@@ -165,6 +171,7 @@ h1{
   }
   .dark-btn:hover{
     background: -webkit-linear-gradient(right ,var(--middle), var(--light));
+    text-decoration: none;
     cursor: pointer;
   }
   .dark-link{
@@ -177,4 +184,16 @@ h1{
   .card{
     background: var(--lighter) !important;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6) !important;
+  }
+  .product-info {
+    width: 100%;
+    padding: 40px;
+    background:var(--dark);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    color: var(--lighter);
+  }
+  .product-img{
+      border-radius: 10px;
   }

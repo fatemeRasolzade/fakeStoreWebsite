@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import SimpleReactValidator from 'simple-react-validator';
+import Helmet from 'react-helmet';
 
 const Login = () => {
 
@@ -42,6 +43,9 @@ const Login = () => {
         <div className="form-container">
             <div className="form-box">
             <h2>ورود به سایت</h2>
+            <Helmet>
+                <title>FAKESTORE | Login</title>
+            </Helmet>
             <form onSubmit={handleSubmit}>
                 <div className="form-input">
                     <input

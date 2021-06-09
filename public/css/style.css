@@ -194,6 +194,6 @@ h1{
     border-radius: 10px;
     color: var(--lighter);
   }
-  .product-img{
-      border-radius: 10px;
+  .product-img, .cart-body{
+      border-radius: 10px !important;
   }

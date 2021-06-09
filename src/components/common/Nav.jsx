@@ -1,7 +1,12 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Nav = () => {
+
+    const cart = useSelector(state => state.cart);
+    const { cartItems } = cart;
+    
     return ( 
         <nav className="navbar navbar-expand-lg navbar-light main-navbar">
             <div className="container-fluid">
@@ -42,7 +47,12 @@ const Nav = () => {
                         </li>
                     </ul>
                 </div>
-                <Link to="/" className="navbar-brand link-navbar logo">FAKESTORE</Link>
+                <NavLink to="/cart/:id?"
+                    activeStyle={{fontWeight:"bold"}}
+                    className="navbar-brand link-navbar logo">
+                        {cartItems.length}
+                        <i className="fa fa-shopping-cart pr-1"></i>
+                </NavLink>
             </div>
         </nav>
      );

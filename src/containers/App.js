@@ -9,6 +9,7 @@ import { paginate } from './../Utils/paginate';
 import AllProducts from './../components/products/AllProducts';
 import Product from '../components/products/Product';
 import AboutUs from './../components/common/AboutUs';
+import Cart from './../components/common/Cart';
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
         <div>
             <Mainlayout>
                 <Switch>
+                    <Route path="/cart/:id" component={Cart} />
                     <Route path="/about-us" component={AboutUs} />
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />

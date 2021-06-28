@@ -7,7 +7,9 @@ export const addToCart = productId => {
             type: "ADD_TO_CART",
             payload:{
                 productId: data.id,
-                price : data.price,
+                title: data.title,
+                price: data.price,
+                image: data.image
             }
         });
     }

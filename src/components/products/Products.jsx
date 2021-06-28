@@ -10,14 +10,14 @@ const Products = ({location,products}) => {
                         <Link to="/allproducts" className="dark-link">مشاهده همه ی کالاها</Link></div>)
                     : null
                 }
-                <div className="row py-5">
+                <div className="row py-4">
                     {products.map(product => (
                         <div key={product.id} className="col mx-auto my-4 col-md-6 col-lg-4">
                             <div className="card rounded-0">
-                                <Link to={`/product/${product.id}`}><img src="img/771796.png" className="card-img-top card-img rounded-0" alt="" /></Link>
+                                <Link to={`/product/${product.id}`}><img src={product.image} className="card-img-top card-img rounded-0 img-height" alt="" /></Link>
                                 <div className="card-body">
-                                    <div className="card-info d-flex justify-content-between">
-                                        <Link to={`/product/${product.id}`} className="dark-link"><h5>محصول{product.id}</h5></Link>
+                                    <div className="card-info">
+                                        <h5><Link to={`/product/${product.id}`} className="dark-link hidden">{product.title}</Link></h5>
                                         <h5>${product.price}</h5>
                                     </div>
                                      <div className="d-flex justify-content-center">

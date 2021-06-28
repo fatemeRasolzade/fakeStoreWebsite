@@ -11,18 +11,19 @@ const Cart = ({match}) => {
     
     const dispatch = useDispatch();
 
-    const productId = match.params.id;
-    // const removeFromCart = (id) => {
-    //    dispatch(removeFromCart(id))
-
-    // }
-
-    return ( 
+    return (
         <main className="main">
+            <Helmet>
+                <title>FAKESTORE | Product</title>
+            </Helmet>
             <div className="container">
-                <Helmet>
-                    <title>FAKESTORE | Product</title>
-                </Helmet>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb p-0 my-4">
+                        <li class="breadcrumb-item"><Link to="/" className="dark-link"> صفحه اصلی </Link></li>
+                        <li class="breadcrumb-item"><Link to="/allproducts" className="dark-link"> لیست تمامی محصولات </Link></li>
+                        <li class="breadcrumb-item active" aria-current="page"> سبد خرید </li>
+                    </ol>
+                </nav>
                 <div className="row">
                     <div className="col-12 col-lg-4  my-4">
                         <div className="product-info mx-auto text-right">
@@ -34,7 +35,7 @@ const Cart = ({match}) => {
                             ?( 
                                 <div className="text-center pt-3">
                                     <p>سبد خرید خالی می باشد</p>
-                                    <Link to="/allproducts" className="dark-link">مشاهده همه ی کالاها</Link>
+                                    <Link to="/allproducts" className="dark-link">مشاهده همه محصولات</Link>
                                 </div>
                             ) : (
                                 <div>
@@ -42,8 +43,8 @@ const Cart = ({match}) => {
                                         <div  key={item.productId} class="card cart-body mb-5">
                                             <div className="row">
                                                 <div className="col-8">
-                                                    <div className="card-body text-right">
-                                                        <h5 className="card-title pr-4">محصول{item.productId}</h5>
+                                                    <div className="card-body text-end">
+                                                        <h5 className="card-title pr-4 pt-2">{item.title}</h5>
                                                         <p className="card-text pr-4">${item.price}</p>
                                                     </div>
                                                     <button
@@ -54,7 +55,7 @@ const Cart = ({match}) => {
                                                     </button>
                                                 </div>
                                                 <div className="col-4">
-                                                    <img className="img-fluid w-100 h-100 product-img" src="../img/771796.png" alt="product"/>
+                                                    <img className="img-fluid w-100 h-100 product-img" src={item.image} alt="product"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -63,8 +64,7 @@ const Cart = ({match}) => {
                             )}
                     </div>
                 </div>
-            </div>
-                     
+            </div>       
         </main>
      );
 }

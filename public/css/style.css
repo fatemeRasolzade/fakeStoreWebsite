@@ -17,12 +17,13 @@
     src: url('./../fonts/hildor-script.ttf');
 }
 body{
-    margin: 0;
-    padding: 0;
-    direction: rtl !important;
     background: var(--lighter) !important;
     font-family: sahel,sans-serif;
     color: var(--darker) !important;
+}
+*{
+    margin: 0;
+    padding: 0;
 }
 ::selection{
     background: #9B72CF;
@@ -30,6 +31,18 @@ body{
 }
 h1{
     font-style: 70px;
+}
+a{
+    text-decoration: none;
+}
+.pl-1{
+    padding-left: 5px;
+}
+.pr-1{
+    padding-right: 5px;
+}
+.text-justify{
+    text-align: justify;
 }
 .logo{
     font-family: "script" !important;
@@ -112,7 +125,6 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 .form-box{
     width: 400px;
@@ -196,4 +208,38 @@ h1{
   }
   .product-img, .cart-body{
       border-radius: 10px !important;
+  }
+  .notFoundContainer{
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .notFoundFont{
+    font-size: 120px;
+    font-weight: bold;
+  }
+  .breadcrumb{
+      background: var(--lighter);
+  }
+  .hidden{
+      line-height: 40px;
+      height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: block;
+      direction: ltr;
+  }
+  .dropdown-btn{
+      width: 100%;
+      background: var(--dark);
+      color: var(--lighter);
+      border: none;
+      border-radius: 50px;
+      height: 45px;
+  }
+  .img-height{
+      height: 400px;
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Nav = () => {
@@ -7,7 +7,7 @@ const Nav = () => {
     const cart = useSelector(state => state.cart);
     const { cartItems } = cart;
     
-    return ( 
+    return (
         <nav className="navbar navbar-expand-lg navbar-light main-navbar">
             <div className="container-fluid">
                 <button className="navbar-toggler"
@@ -16,10 +16,10 @@ const Nav = () => {
                     aria-controls="navbarSupportedContent"
                     aria-expanded="false"
                     aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                    <span className="fa fa-bars"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul className="navbar-nav mb-2 mb-lg-0">
                         <li className="nav-item">
                             <NavLink
                             to="/"

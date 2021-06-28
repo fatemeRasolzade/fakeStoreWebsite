@@ -10,6 +10,7 @@ import AllProducts from './../components/products/AllProducts';
 import Product from '../components/products/Product';
 import AboutUs from './../components/common/AboutUs';
 import Cart from './../components/common/Cart';
+import NotFound from './../components/common/NotFound';
 
 const App = () => {
 
@@ -30,6 +31,7 @@ const App = () => {
                     <Route path="/" exact 
                         render={() => <Products products={indexProducts}/>}
                     />
+                    <Route path="*" exact component={NotFound} />
                 </Switch>
             </Mainlayout>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import SimpleReactValidator from 'simple-react-validator';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
 
@@ -47,77 +48,84 @@ const Register = () => {
     }
 
     return (
-      <div className="form-container">
-        <div className="form-box">
-          <h2>عضویت در سایت</h2>
+      <main>
+        <div className="container">
           <Helmet>
-                <title>FAKESTORE | Register</title>
-            </Helmet>
-          <form onSubmit={handleSubmit}>
-            <div className="form-input">
-              <input 
-                type="text" 
-                name="username" 
-                value={username}
-                onChange={e => {
-                  setUsername(e.target.value);
-                  validator.current.showMessageFor("username");
-                }}
-                
-              />
-              <label>نام کاربری</label>
+            <title>FAKESTORE | Register</title>
+          </Helmet>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb p-0 my-4">
+                <li class="breadcrumb-item"><Link to="/" className="dark-link"> صفحه اصلی </Link></li>
+                <li class="breadcrumb-item active" aria-current="page"> عضویت در سایت </li>
+            </ol>
+          </nav>
+          <div className="form-container py-5">
+            <div className="form-box">
+              <h2>عضویت در سایت</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="form-input">
+                  <input 
+                    type="text" 
+                    name="username" 
+                    value={username}
+                    onChange={e => {
+                      setUsername(e.target.value);
+                      validator.current.showMessageFor("username");
+                    }}
+                  />
+                  <label>نام کاربری</label>
+                </div>
+                {validator.current.message("username",username,"required|min:6")}
+                <div className="form-input">
+                  <input 
+                    type="text"
+                    name="email"
+                    value={email}
+                    onChange={e => {
+                      setEmail(e.target.value);
+                      validator.current.showMessageFor("email");
+                    }}
+                  />
+                  {validator.current.message("email",email,"required|email")}
+                  <label>ایمیل</label>
+                </div>
+                <div className="form-input">
+                  <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={e => {
+                      setPassword(e.target.value);
+                      validator.current.showMessageFor("password");
+                    }}
+                  />
+                  <label>رمز عبور</label>
+                </div>
+                {validator.current.message("password",password,"required|min:6")}
+                <div className="text-right">
+                  <input
+                    type="checkbox"
+                    name="policy"
+                    value={policy}
+                    onChange={e => {
+                      setPolicy(e.currentTarget.checked);
+                      validator.current.showMessageFor("policy");
+                    }}
+                  />
+                  <label className="pr-2">قوانین و مقررات سایت را می پذیرم</label>
+                </div>
+                {validator.current.message("policy",policy,"required")}
+                <button 
+                  type="submit" 
+                  className="text-uppercase light-btn mt-4"
+                >
+                  عضویت
+                </button>
+              </form>
             </div>
-              {validator.current.message("username",username,"required|min:6")}
-            <div className="form-input">
-              <input 
-                type="text"
-                name="email"
-                value={email}
-                onChange={e => {
-                  setEmail(e.target.value);
-                  validator.current.showMessageFor("email");
-                }}
-               
-              />
-              {validator.current.message("email",email,"required|email")}
-              <label>ایمیل</label>
-            </div>
-            <div className="form-input">
-              <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={e => {
-                  setPassword(e.target.value);
-                  validator.current.showMessageFor("password");
-                }}
-              />
-              <label>رمز عبور</label>
-            </div>
-              {validator.current.message("password",password,"required|min:6")}
-            <div className="text-right">
-              <input
-                type="checkbox"
-                name="policy"
-                value={policy}
-                onChange={e => {
-                  setPolicy(e.currentTarget.checked);
-                  validator.current.showMessageFor("policy");
-                }}
-                
-              />
-              <label className="pr-2">قوانین و مقررات سایت را می پذیرم</label>
-            </div>
-              {validator.current.message("policy",policy,"required")}
-            <button 
-              type="submit" 
-              className="text-uppercase light-btn mt-4"
-            >
-              عضویت
-            </button>
-          </form>
+          </div>
         </div>
-      </div>
+      </main>
     );
 }
  

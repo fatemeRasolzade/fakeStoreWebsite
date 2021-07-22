@@ -9,11 +9,11 @@ const Footer = () => {
                         <p>خبرنامه</p>
                         <p>با عضویت در خبرنامه از جدیدترین محصولات ما مطلع شوید</p>
                         <form>
-                            <input type="email" className="footer-input" placeholder="لطفا ایمیل خود را وارد کنید" />
-                            <button type="submit" className="text-uppercase light-btn">subscrib</button>
+                            <input type="text" className="footer-input" placeholder="لطفا ایمیل خود را وارد کنید" />
+                            <button type="submit" className="mt-2 mt-sm-0 text-uppercase light-btn"> ثبت نام </button>
                         </form>
                     </div>
-                    <div className="col col-12 col-xl-6 text-right d-flex  justify-content-between pt-5">
+                    <div className="col col-12 col-xl-6 text-right d-flex  justify-content-around pt-5">
                         <p className="d-inline">ما را در شبکه های مجازی دنبال کنید</p>
                         <div>
                             <a href="#" className="footer-socialmedia fa fa-instagram"></a>

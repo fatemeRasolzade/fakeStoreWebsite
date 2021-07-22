@@ -12,7 +12,7 @@ const Pagination = ({totalCourse, currentPage, perPage, onPageChange}) => {
         <nav aria-label="Page navigation example">
             <ul className="pagination d-flex justify-content-center pb-3 rounded-0">
                 {pages.map(page => (
-                    <li key={page} className="page-item">
+                    <li key={page} className="page-item  pointer">
                         <a  className={page === currentPage
                                         ? "page-link dark-link rounded-0 font-weight-bold"
                                         : "page-link dark-link rounded-0"

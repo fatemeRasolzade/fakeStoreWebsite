@@ -1,14 +1,14 @@
 import React,{ useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { useSelector, useDispatch } from 'react-redux';
-import { getSingleProduct } from './../../actions/product';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import { getSingleProduct } from '../../redux/actions/productsAction';
 
 const Product = ({history, match}) => {
 
     const [loading, setLoading] = useState(false);
 
-    const product = useSelector(state => state.product);
+    const product = useSelector(state => state.Products.productDetails);
     const dispatch = useDispatch();
 
     useEffect(() => {

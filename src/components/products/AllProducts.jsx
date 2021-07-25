@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Products from './Products';
-import Pagination from '../common/Pagination';
-import { paginate } from '../../Utils/paginate';
 import { orderBy } from 'lodash';
+import { paginate } from '../../Utils/paginate';
+import Pagination from '../common/Pagination';
+import Products from './Products';
 
 const AllProducts = () => {
 
@@ -14,7 +14,9 @@ const AllProducts = () => {
     const [productList, setProductList] = useState([]);
     const [search, setSearch] = useState("");
 
-    const products = useSelector(state => state.products);
+    const products = useSelector(state => state.Products.products);
+    console.log(products);
+    
 
     const handlePageChange = page => {
         setCurrentPage(page);

@@ -1,16 +1,24 @@
 import React, { useState, useRef } from 'react';
-import SimpleReactValidator from 'simple-react-validator';
-import { Helmet } from 'react-helmet';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { v4 as uuidv4 } from 'uuid';
+import SimpleReactValidator from 'simple-react-validator';
+import { addUser } from './../../redux/actions/userAction';
 
 const Register = () => {
 
-    const [username,setUsername] = useState("");
-    const [email,setEmail] = useState("");
-    const [password,setPassword] = useState("");
-    const [policy,setPolicy] = useState();
+    const [user, setUser] = useState({
+      id: uuidv4(), 
+      username: "",
+      email: "",
+      password: ""
+    })
 
+    const [policy,setPolicy] = useState();
     const [, forceUpdate] = useState();
+    const dispatch = useDispatch();
+
     const validator = useRef(new SimpleReactValidator({
       messages: {
         required: "پر کردن این فیلد الزامیست",
@@ -20,27 +28,19 @@ const Register = () => {
       element: message => <div style={{ color: "red" , textAlign: "left" }}>{message}</div>
     }));
 
-    const reset = () => {
-      setUsername("");
-      setEmail("");
-      setPassword("");
-      setPolicy();
+    const onChange = (name,value) => {
+      setUser({
+        ...user,
+        [name]: value
+      })
     }
 
-    const handleSubmit = event => {
+    const onSubmit = event => {
 
       event.preventDefault();
-
-      const user = {
-        username,
-        email,
-        password
-      }
       
       if(validator.current.allValid()){
-        alert(username+"\nدر حال حاضر عضویت در سایت امکان پذیر نمی باشد\nدر حال توسعه...");
-        console.log(user);
-        reset();
+        dispatch(addUser(user));
       }else{
         validator.current.showMessages();
         forceUpdate(1);
@@ -62,46 +62,46 @@ const Register = () => {
           <div className="form-container py-5">
             <div className="form-box">
               <h2>عضویت در سایت</h2>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={onSubmit}>
                 <div className="form-input">
                   <input 
                     type="text" 
                     name="username" 
-                    value={username}
-                    onChange={e => {
-                      setUsername(e.target.value);
+                    value={user.username}
+                    onChange={event => {
+                      onChange('username',event.target.value)
                       validator.current.showMessageFor("username");
                     }}
                   />
                   <label>نام کاربری</label>
                 </div>
-                {validator.current.message("username",username,"required|min:6")}
+                {validator.current.message("username",user.username,"required|min:6")}
                 <div className="form-input">
                   <input 
                     type="text"
                     name="email"
-                    value={email}
-                    onChange={e => {
-                      setEmail(e.target.value);
+                    value={user.email}
+                    onChange={event => {
+                      onChange('email',event.target.value)
                       validator.current.showMessageFor("email");
                     }}
                   />
-                  {validator.current.message("email",email,"required|email")}
+                  {validator.current.message("email",user.email,"required|email")}
                   <label>ایمیل</label>
                 </div>
                 <div className="form-input">
                   <input
                     type="password"
                     name="password"
-                    value={password}
-                    onChange={e => {
-                      setPassword(e.target.value);
+                    value={user.password}
+                    onChange={event => {
+                      onChange('password',event.target.value)
                       validator.current.showMessageFor("password");
                     }}
                   />
                   <label>رمز عبور</label>
                 </div>
-                {validator.current.message("password",password,"required|min:6")}
+                {validator.current.message("password",user.password,"required|min:6")}
                 <div className="text-right">
                   <input
                     type="checkbox"
@@ -112,12 +112,13 @@ const Register = () => {
                       validator.current.showMessageFor("policy");
                     }}
                   />
-                  <label className="pr-2">قوانین و مقررات سایت را می پذیرم</label>
+                  <label className="pr-1">قوانین و مقررات سایت را می پذیرم</label>
                 </div>
                 {validator.current.message("policy",policy,"required")}
                 <button 
                   type="submit" 
                   className="text-uppercase light-btn mt-4"
+                  onClick={onSubmit}
                 >
                   عضویت
                 </button>

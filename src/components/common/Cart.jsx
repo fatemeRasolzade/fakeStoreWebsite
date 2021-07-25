@@ -1,15 +1,15 @@
 import React,{ useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from '../../actions/cart';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { addToCart } from './../../actions/cart';
+import { removeFromCart } from '../../redux/actions/cartAction';
+import { addToCart } from '../../redux/actions/cartAction';
 
 const Cart = ({match}) => {
 
     const [loading, setLoading] = useState(false);
 
-    const cart = useSelector((state) => state.cart);
+    const cart = useSelector((state) => state.Cart);
     const {cartItems} = cart;
     
     const dispatch = useDispatch();

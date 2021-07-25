@@ -1,4 +1,4 @@
-import { getProduct } from "../services/productServices"
+import { getProduct } from "../../services/productServices"
 
 export const addToCart = productId => {
     return async dispatch => {

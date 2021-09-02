@@ -15,8 +15,6 @@ const AllProducts = () => {
     const [search, setSearch] = useState("");
 
     const products = useSelector(state => state.Products.products);
-    console.log(products);
-    
 
     const handlePageChange = page => {
         setCurrentPage(page);

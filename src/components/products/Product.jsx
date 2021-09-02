@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { getSingleProduct } from '../../redux/actions/productsAction';
+import LoadingBar from '../../Utils/LoadingBar';
+import { addToCart } from '../../redux/actions/cartAction';
 
 const Product = ({history, match}) => {
 
@@ -56,17 +58,7 @@ const Product = ({history, match}) => {
                     </div>
                     <div className="col-11 col-md-6 col-lg-5 text-center my-4">
                         {loading ? 
-                            <div class="text-center my-5">
-                                <div class="spinner-grow text mx-3" role="status">
-                                    <span class="sr-only"></span>
-                                </div>
-                                <div class="spinner-grow text mx-3" role="status">
-                                    <span class="sr-only"></span>
-                                </div>
-                                <div class="spinner-grow text mx-3" role="status">
-                                    <span class="sr-only"></span>
-                                </div>
-                            </div>
+                            <LoadingBar/>
                         : null}
                         <img className="img-fluid w-100" src={product.image}/>
                         <div className="text-end">
@@ -76,7 +68,7 @@ const Product = ({history, match}) => {
                         </div>
                         <button
                             onClick={() => {
-                                        // dispatch(addToCart(product.id));
+                                        dispatch(addToCart(product.id));
                                         history.push(`/cart/${match.params.id}`);
                                     }}
                             className="dark-btn">

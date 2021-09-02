@@ -25,6 +25,15 @@ body{
     margin: 0;
     padding: 0;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff !important;
+}
+
 ::selection{
     background: #9B72CF;
     color:#F4EFFA;
@@ -34,6 +43,9 @@ h1{
 }
 a{
     text-decoration: none;
+}
+p{
+    margin: 0;
 }
 input:focus {
     outline: none;

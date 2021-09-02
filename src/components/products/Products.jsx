@@ -1,7 +1,25 @@
-import React from 'react';
+import React,{ useState ,useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import { getAllProducts } from '../../redux/actions/productsAction';
+import LoadingBar from '../../Utils/LoadingBar';
 
 const Products = ({location,products}) => {
+
+    const [loading, setLoading] = useState(false)
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        setLoading(true)
+        initProducts()
+        setLoading(false)
+    }, [])
+
+    const initProducts = async () => {
+        await dispatch(getAllProducts())
+    }
+
     return ( 
         <main className="main">
             <div className="container">
@@ -11,6 +29,9 @@ const Products = ({location,products}) => {
                     : null
                 }
                 <div className="row py-5">
+                    {loading ?
+                        <LoadingBar/>
+                        : null}
                     {products.map(product => (
                         <div key={product.id} className="col mx-auto my-4 col-md-6 col-lg-4">
                             <div className="card rounded-0">

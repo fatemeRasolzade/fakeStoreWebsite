@@ -8,7 +8,7 @@ const Footer = () => {
                     <div className="col col-12  col-xl-6 text-right pt-5">
                         <p>خبرنامه</p>
                         <p>با عضویت در خبرنامه از جدیدترین محصولات ما مطلع شوید</p>
-                        <form>
+                        <form className="my-4">
                             <input type="text" className="footer-input" placeholder="لطفا ایمیل خود را وارد کنید" />
                             <button type="submit" className="mt-2 mt-sm-0 text-uppercase light-btn"> ثبت نام </button>
                         </form>

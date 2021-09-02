@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { getSingleProduct } from '../../redux/actions/productsAction';
 import LoadingBar from '../../Utils/LoadingBar';
-import { addToCart } from '../../redux/actions/cartAction';
 
 const Product = ({history, match}) => {
 
@@ -33,7 +32,9 @@ const Product = ({history, match}) => {
                     <ol class="breadcrumb p-0 my-4">
                         <li class="breadcrumb-item"><Link to="/" className="dark-link"> صفحه اصلی </Link></li>
                         <li class="breadcrumb-item"><Link to="/allproducts" className="dark-link"> لیست تمامی محصولات </Link></li>
-                        <li class="breadcrumb-item active" aria-current="page"> {product.title} </li>
+                        {/* {product &&  */}
+                            <li class="breadcrumb-item active" aria-current="page"> {product.title} </li>
+                        {/* } */}
                     </ol>
                 </nav>
                 <div className="row my-5 justify-content-center">
@@ -56,25 +57,28 @@ const Product = ({history, match}) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-11 col-md-6 col-lg-5 text-center my-4">
-                        {loading ? 
-                            <LoadingBar/>
-                        : null}
-                        <img className="img-fluid w-100" src={product.image}/>
-                        <div className="text-end">
-                            <h2 className="pt-3">{product.title}</h2>
-                            <h5 className="pt-1">${product.price}</h5>
-                            <p className="text-justify pt-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.د.</p>
+                    {/* {product ?  */}
+                        <div className="col-11 col-md-6 col-lg-5 text-center my-4">
+                            {loading ? 
+                                <LoadingBar/>
+                            : null}
+                            <img className="img-fluid w-100" src={product.image}/>
+                            <div className="text-end">
+                                <h2 className="pt-3">{product.title}</h2>
+                                <h5 className="pt-1">${product.price}</h5>
+                                <p className="text-justify pt-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.د.</p>
+                            </div>
+                            <button
+                                onClick={() => {
+                                            history.push(`/cart/${match.params.id}`);
+                                        }}
+                                className="dark-btn">
+                                افزودن به سبد خرید
+                            </button>
                         </div>
-                        <button
-                            onClick={() => {
-                                        dispatch(addToCart(product.id));
-                                        history.push(`/cart/${match.params.id}`);
-                                    }}
-                            className="dark-btn">
-                            افزودن به سبد خرید
-                        </button>
-                    </div>
+                        {/* : */}
+                        {/* <p>یافت نشد</p> */}
+                    {/* } */}
                 </div>
             </div>
         </main>

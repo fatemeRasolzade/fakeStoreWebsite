@@ -3,26 +3,26 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { removeFromCart } from '../../redux/actions/cartAction';
-// import { addToCart } from '../../redux/actions/cartAction';
+import { addToCart } from '../../redux/actions/cartAction';
 import LoadingBar from '../../Utils/LoadingBar';
 
 const Cart = ({match}) => {
 
     const [loading, setLoading] = useState(false);
 
-    const cart = useSelector((state) => state.Cart);
+    const cart = useSelector((state) => state.Cart.cartItems);
     
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     initCart();
-    // }, []);
+    useEffect(() => {
+        initCart();
+    }, []);
     
-    // const initCart = async () => {
-    //     setLoading(true)
-    //     await dispatch(addToCart(match.params.id));
-    //     setLoading(false)
-    // }
+    const initCart = async () => {
+        setLoading(true)
+        await dispatch(addToCart(match.params.id));
+        setLoading(false)
+    }
 
     return (
         <main className="main">

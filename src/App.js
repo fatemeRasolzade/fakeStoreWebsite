@@ -12,6 +12,7 @@ import AboutUs from './components/common/AboutUs';
 import Cart from './components/common/Cart';
 import NotFound from './components/common/NotFound';
 import history from './Utils/history';
+import ErrorBoundary from './Utils/ErrorBoundary';
 // import PrivateRoute from './components/login/PrivateRoute';
 // import Notification from './Utils/Notification';
 
@@ -23,24 +24,26 @@ const App = () => {
 
     return ( 
         <div>
-            {/* <Notification/> */}
-            <Router history={history}>
-                <Mainlayout>
-                    <Switch>
-                        <Route path="/cart/:id" component={Cart} />
-                        <Route path="/about-us" component={AboutUs} />
-                        <Route path="/login" component={Login} />
-                        <Route path="/register" component={Register} />
-                        <Route path="/product/:id" component={Product} />
-                        <Route path="/allproducts" component={AllProducts} />
-                        <Route path="/" exact 
-                            render={() => <Products products={indexProducts}/>}
-                        />
-                        <Route path="*" exact component={NotFound} />
-                        {/* <PrivateRoute path="/dashboard" component={}/> */}
-                    </Switch>
-                </Mainlayout>
-            </Router>
+            <ErrorBoundary>
+                {/* <Notification/> */}
+                <Router history={history}>
+                    <Mainlayout>
+                        <Switch>
+                            <Route path="/cart/:id" component={Cart} />
+                            <Route path="/about-us" component={AboutUs} />
+                            <Route path="/login" component={Login} />
+                            <Route path="/register" component={Register} />
+                            <Route path="/product/:id" component={Product} />
+                            <Route path="/allproducts" component={AllProducts} />
+                            <Route path="/" exact 
+                                render={() => <Products products={indexProducts}/>}
+                            />
+                            <Route path="*" exact component={NotFound} />
+                            {/* <PrivateRoute path="/dashboard" component={}/> */}
+                        </Switch>
+                    </Mainlayout>
+                </Router>
+            </ErrorBoundary>
         </div>
      );
 }

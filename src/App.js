@@ -13,8 +13,8 @@ import Cart from './components/common/Cart';
 import NotFound from './components/common/NotFound';
 import history from './Utils/history';
 import ErrorBoundary from './Utils/ErrorBoundary';
+import Notification from './Utils/Notification';
 // import PrivateRoute from './components/login/PrivateRoute';
-// import Notification from './Utils/Notification';
 
 const App = () => {
 
@@ -25,7 +25,7 @@ const App = () => {
     return ( 
         <div>
             <ErrorBoundary>
-                {/* <Notification/> */}
+                <Notification/>
                 <Router history={history}>
                     <Mainlayout>
                         <Switch>

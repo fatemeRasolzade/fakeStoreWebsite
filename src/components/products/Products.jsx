@@ -1,6 +1,6 @@
 import React,{ useState ,useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { getAllProducts } from '../../redux/actions/productsAction';
 import LoadingBar from '../../Utils/LoadingBar';
 
@@ -55,4 +55,3 @@ const Products = ({location,products}) => {
 }
  
 export default withRouter(Products);
-

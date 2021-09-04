@@ -23,7 +23,7 @@ const AllProducts = () => {
     useEffect(() => setProductList(products), [products]);
 
     const filteredProducts = productList.filter((product) =>
-        product.title.includes(search)
+        product.title.toLowerCase().includes(search)
     );
 
     const allProducts = paginate(filteredProducts, currentPage, perPage);
@@ -68,7 +68,7 @@ const AllProducts = () => {
                                         className="search-input"
                                         type="text"
                                         placeholder="دنبال چی میگردی؟"
-                                        onChange={e => setSearch(e.target.value)}
+                                        onChange={e => setSearch(e.target.value.toLowerCase())}
                                     />
                                     <button className="search-btn" type="submit">
                                         <span className="fa fa-search"></span>

@@ -9,7 +9,7 @@ import Products from './Products';
 
 const AllProducts = () => {
 
-    const [perPage] = useState(9);
+    const [perPage] = useState(12);
     const [currentPage, setCurrentPage] = useState(1);
     const [productList, setProductList] = useState([]);
     const [search, setSearch] = useState("");
@@ -57,9 +57,9 @@ const AllProducts = () => {
                     </ol>
                 </nav>
                 <div className="text-right py-3">
-                    <p className="mb-0">لیست تمامی محصولات ({products.length})</p>
+                    <p className="mb-0 fs-5">لیست تمامی محصولات ({products.length})</p>
                 </div>
-                <div class="card">
+                <div className="shadow-sm" style={{marginBottom: '-30px'}}>
                     <div class="card-body">
                         <div className="row">
                             <div className="col-lg-9">

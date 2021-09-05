@@ -16,6 +16,19 @@
     font-family: 'script';
     src: url('./../fonts/hildor-script.ttf');
 }
+html{
+    font-size: 16px;
+}
+@media only screen and (max-width: 1000px) {
+    html{
+        font-size: 14px;
+    }
+  }
+@media only screen and (max-width: 600px) {
+    html{
+        font-size: 12px;
+    }
+  }
 body{
     background: var(--lighter) !important;
     font-family: sahel,sans-serif;
@@ -37,9 +50,6 @@ input:-webkit-autofill:active {
 ::selection{
     background: #9B72CF;
     color:#F4EFFA;
-}
-h1{
-    font-style: 70px;
 }
 a{
     text-decoration: none;
@@ -85,7 +95,7 @@ button:focus:hover {
 }
 .link-navbar{
     color: var(--lighter) !important;
-    font-size: 16px;
+    font-size: 1rem;
     transition: all linear .5s;
 }
 .link-navbar:hover{
@@ -101,23 +111,20 @@ button:focus:hover {
     width: 100%;
     display: block;
     border-radius: 50px;
-    -webkit-border-radius: 50px;
-    line-height: 50px;
-    height: 45px;
-    padding: 0 20px;
-    font-size: 15px;
-    color: var(--mainBlack) !important;
+    height: 3rem;
+    padding: 0 2rem;
+    font-size: .9rem;
+    color: var(--darker) !important;
     border: 0;
     outline: none;
 }
 .search-btn{
     font-size: 25px;
     position: absolute;
-    left: 15px;
+    left: .1rem;
     top: 0;
-    width: 50px;
-    height: 45px;
-    line-height: 45px;
+    width: 3rem;
+    height: 3rem;
     text-align: center;
     background-color: transparent;
     border: 0;
@@ -127,8 +134,8 @@ button:focus:hover {
 }
 .footer-socialmedia{
     color: var(--lighter);
-    font-size: 25px;
-    padding-right: 15px;
+    font-size: 1.7rem;
+    padding-right: .7rem;
     transition: all linear .5s;
 }
 .footer-socialmedia:hover{
@@ -139,7 +146,7 @@ button:focus:hover {
     color: var(--dark);
     border: none;
     border-radius: 100px;
-    padding: 10px 35px;
+    padding: .7rem 2rem;
     transition: all linear .5s;
 }
 .light-btn:hover{
@@ -152,8 +159,8 @@ button:focus:hover {
 .footer-input{
     border: none;
     border-radius: 100px;
-    margin-left: 13px;
-    padding: 10px 30px 10px 100px;
+    margin-left: 1rem;
+    padding: .7rem 3rem .7rem 8rem;
 }
 .form-container{
     display: flex;
@@ -161,16 +168,15 @@ button:focus:hover {
     align-items: center;
 }
 .form-box{
-    width: 400px;
-    padding: 40px;
+    width: 25rem;
+    padding: 3rem;
     background:var(--dark);
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
+    border-radius: 5px;
     color: var(--lighter);
   }
   .form-box h2 {
-    margin: 0 0 30px;
+    margin: 0 0 3rem;
     padding: 0;
     color: var(--lighter);
     text-align: center;
@@ -214,6 +220,7 @@ button:focus:hover {
     padding: 10px 30px;
     margin: 20px 0 10px 0;
     transition: all linear .5s !important;
+    font-size: .8rem;
   }
   .dark-btn:hover{
     letter-spacing: .5px;
@@ -228,11 +235,6 @@ button:focus:hover {
   .dark-link:hover{
       color: var(--dark);
       text-decoration: none;
-  }
-  .card{
-    background: var(--lighter) !important;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6) !important;
-    border-radius: 0 !important;
   }
   .product-info {
     width: 100%;
@@ -251,7 +253,7 @@ button:focus:hover {
     align-items: center;
   }
   .notFoundFont{
-    font-size: 120px;
+    font-size: 10rem;
     font-weight: bold;
   }
   .breadcrumb{
@@ -273,6 +275,7 @@ button:focus:hover {
       border: none;
       border-radius: 50px;
       height: 45px;
+      font-size: .9rem;
       transition: all linear .5s !important;
   }
   .dropdown-btn:hover{
@@ -282,8 +285,17 @@ button:focus:hover {
     color: var(--lighter);
     font-weight: bold; 
   }
+  .card{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      min-height: 350px;
+  }
   .img-height{
-      height: 350px;
+      margin: auto;
+      width: auto;
+      max-width: 200px;
+      height: 200px;
   }
   .cart-height{
       height: 270px;
@@ -331,4 +343,7 @@ button:focus:hover {
     width: 400px;
     text-align: center;
     border-radius: 0 0 10px 10px;
+}
+.breadcrumb{
+    font-size: .9rem;
 }

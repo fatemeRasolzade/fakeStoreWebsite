@@ -59,7 +59,7 @@ const Register = () => {
                 <li class="breadcrumb-item active" aria-current="page"> عضویت در سایت </li>
             </ol>
           </nav>
-          <div className="form-container py-5">
+          <div className="form-container py-5 mb-5">
             <div className="form-box">
               <h2>عضویت در سایت</h2>
               <form onSubmit={onSubmit}>

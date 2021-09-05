@@ -10,12 +10,14 @@ const Mainlayout = props => {
     const { pathname } = props.location;
 
     return ( 
-        <div>
-            <Nav/>
-            {pathname === "/" ? <Header/> : null}
-                <div>
-                    {props.children}
-                </div>
+        <div className="d-flex flex-column justify-content-between" style={{minHeight: '100vh'}}>
+            <div>
+                <Nav/>
+                {pathname === "/" ? <Header/> : null}
+                    <div>
+                        {props.children}
+                    </div>
+            </div>
             {pathname === "/" || "/allproducts" ? <Footer/> : null}
         </div>
      );

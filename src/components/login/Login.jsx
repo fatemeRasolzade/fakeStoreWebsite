@@ -54,7 +54,7 @@ const Login = () => {
                         <li class="breadcrumb-item active" aria-current="page"> ورود به سایت </li>
                     </ol>
                 </nav>
-                <div className="form-container py-5">
+                <div className="form-container py-5 mb-5">
                     <div className="form-box">
                         <h2>ورود به سایت</h2>
                         <form onSubmit={onSubmit}>

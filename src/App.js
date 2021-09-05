@@ -20,7 +20,7 @@ const App = () => {
 
     const products = useSelector(state => state.Products.products);
 
-    const indexProducts = paginate(products, 1, 6);
+    const indexProducts = paginate(products, 1, 8);
 
     return ( 
         <div>

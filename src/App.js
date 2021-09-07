@@ -14,7 +14,6 @@ import NotFound from './components/common/NotFound';
 import history from './Utils/history';
 import ErrorBoundary from './Utils/ErrorBoundary';
 import Notification from './Utils/Notification';
-import Test from './components/Test';
 // import PrivateRoute from './components/login/PrivateRoute';
 
 const App = () => {
@@ -30,7 +29,6 @@ const App = () => {
                 <Router history={history}>
                     <Mainlayout>
                         <Switch>
-                            <Route path="/test" component={Test} />
                             <Route path="/cart/:id" component={Cart} />
                             <Route path="/about-us" component={AboutUs} />
                             <Route path="/login" component={Login} />

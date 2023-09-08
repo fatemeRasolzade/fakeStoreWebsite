@@ -17,6 +17,8 @@ import { ProductsData } from "./Utils/data";
 // import PrivateRoute from './components/login/PrivateRoute';
 
 const App = () => {
+
+  
   // const products = useSelector(state => state.Products.products);
 
   const indexProducts = paginate(ProductsData, 1, 8);
